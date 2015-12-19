@@ -13,8 +13,13 @@ void setup()
     
     Actor tree = new Actor(new TreeCostume());
     cast.add(tree);
-    script.add(new Entrance(tree, 40, 300, 300, 50));
-    script.add(new Movement(tree, 80, 200, 2, 2, 2));
+    
+    Actor santa = new Actor(new SantaCostume());
+    cast.add(santa);
+    
+    //script.add(new Entrance(tree, 40, 300, 300, 50));
+    script.add(new Entrance(santa, 40, 300, 300, 1000));
+    //script.add(new Movement(tree, 80, 200, 2, 2, 2));
 }
 
 void draw() 
