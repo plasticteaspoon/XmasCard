@@ -5,21 +5,20 @@ final int FRAMES_PER_SECOND = 18;
 ArrayList<Actor> cast = new ArrayList<Actor>();
 ArrayList<StageDirection> script = new ArrayList<StageDirection>();
 
+Scenery scenery = new Scenery();
+
 void setup()
 {
     //set the size of the stage
     size(800, 600, P3D);
     frameRate(FRAMES_PER_SECOND);
     
-    Actor tree = new Actor(new TreeCostume());
-    cast.add(tree);
-    
     Actor santa = new Actor(new SantaCostume());
     cast.add(santa);
     
-    //script.add(new Entrance(tree, 40, 300, 300, 50));
-    script.add(new Entrance(santa, 40, 300, 300, 1000));
-    //script.add(new Movement(tree, 80, 200, 2, 2, 2));
+    //script.add(new Entrance(santa, 1, 300, 300, 1000));
+    
+    scenery.createSet();
 }
 
 void draw() 
@@ -35,9 +34,8 @@ void draw()
             direction.execute(frameCount);
         }
     }
-
-    //erase the screen
-    background(255);
+    
+    scenery.draw();
     
     //redraw the cast members
     for(Actor actor : cast)
