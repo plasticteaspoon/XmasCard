@@ -5,12 +5,15 @@ class SantaCostume extends Costume
     
      public void drawAtOrigin()
      {         
+         noStroke();
+         
          //the legs
          drawLegs();
          //the arms 
          drawArms();
          //the body
          drawBody();
+         stroke(0, 0, 0);
          //the head
          drawHead();
              
@@ -31,6 +34,7 @@ class SantaCostume extends Costume
     private void drawHead()
     {
         //the head
+        noStroke();
         fill(255, 223, 196);
         ellipse(0, -675, 150, 150);
         
@@ -52,9 +56,11 @@ class SantaCostume extends Costume
         endShape(CLOSE);
         
         //the mouth
+        stroke(0, 0, 0);
         curve(50, -670, 30, -630, -30, -630, -50, -670);
         
          //the hat
+         noStroke();
          fill(255, 0, 0);
          triangle(0, -850, 73, -730, -73, -730);
          
@@ -63,6 +69,7 @@ class SantaCostume extends Costume
          rect(-73, -730, 146, 30);
          
          //the pompom on top of the hat
+         stroke(200);         
          ellipse(0, -850, 50, 50);
     }
     
@@ -97,7 +104,6 @@ class SantaCostume extends Costume
     {
         //the legs
         fill(225, 0, 0);
-        stroke(0, 0, 0);
         ellipse(-50, -325, 75, 150);
         ellipse(50, -325, 75, 150);
         
