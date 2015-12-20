@@ -5,7 +5,7 @@ final int FRAMES_PER_SECOND = 18;
 ArrayList<Actor> cast = new ArrayList<Actor>();
 ArrayList<StageDirection> script = new ArrayList<StageDirection>();
 
-Scenery scenery = new Scenery();
+PImage png;
 
 void setup()
 {
@@ -16,14 +16,17 @@ void setup()
     Actor santa = new Actor(new SantaCostume());
     cast.add(santa);
     
-    //script.add(new Entrance(santa, 1, 300, 300, 1000));
+    script.add(new Entrance(santa, 1, 300, 2000, 2500));
+    script.add(new Movement(santa, FRAMES_PER_SECOND, 2*FRAMES_PER_SECOND, 20, 0, 0));
     
-    scenery.createSet();
+    png = loadImage("dot.png");
 }
 
 void draw() 
 {
     //lets do the play!
+    
+    background(png);
     
     //loop through the stage directions and execute any actions that 
     //are scheduled for this frame 
@@ -34,8 +37,6 @@ void draw()
             direction.execute(frameCount);
         }
     }
-    
-    scenery.draw();
     
     //redraw the cast members
     for(Actor actor : cast)
