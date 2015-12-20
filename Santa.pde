@@ -6,16 +6,15 @@ class SantaCostume extends Costume
      public void drawAtOrigin()
      {         
          noStroke();
-         
          //the legs
-         drawLegs();
+         //drawLegs();
          //the arms 
-         drawArms();
+         //drawArms();
          //the body
-         drawBody();
+         //drawBody();
          stroke(0, 0, 0);
          //the head
-         drawHead();
+         //drawHead();
              
          
      }

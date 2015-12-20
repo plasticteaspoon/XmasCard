@@ -62,6 +62,31 @@ public class Movement extends StageDirection
     }
 }
 
+public class MoveTo extends StageDirection
+{
+    PVector _destination;    //the destination
+    
+    public MoveTo(Actor actor, int startTime, int duration, float destX, float destY, float destZ)
+    {
+        super(actor, startTime, duration); //<>//
+        
+        _destination = new PVector(destX, destY, destZ);
+    }
+    
+    public void execute(int time)
+    {
+        int timeRemaining = _startTime + _duration - time;
+        
+        if(timeRemaining  > 0)
+        {
+            PVector moveBy = _destination.copy(); //<>//
+            moveBy.sub(_actor.getPosition());
+            moveBy.div(timeRemaining);        
+            _actor.move(moveBy);
+        }
+    }
+}
+
 public class Exit extends StageDirection
 {
     public Exit(Actor actor, int startTime)

@@ -14,7 +14,7 @@ public class Actor
     //go onto the stage
     public void enterStage(PVector position)
     {
-        _position = position;
+        _position = position.copy();
         _visible = true;
     }
     
@@ -45,6 +45,11 @@ public class Actor
             _costume.drawAtOrigin();
             popMatrix();
         }
+    }
+    
+    public PVector getPosition()
+    {
+        return _position;
     }
     
  }

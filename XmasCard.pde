@@ -10,14 +10,20 @@ PImage png;
 void setup()
 {
     //set the size of the stage
-    size(800, 600, P3D);
+    size(800, 600, P3D); //<>//
     frameRate(FRAMES_PER_SECOND);
     
     Actor santa = new Actor(new SantaCostume());
     cast.add(santa);
     
-    script.add(new Entrance(santa, 1, 300, 2000, 2500));
-    script.add(new Movement(santa, FRAMES_PER_SECOND, 2*FRAMES_PER_SECOND, 20, 0, 0));
+    Actor sleigh = new Actor(new SleighCostume());
+    cast.add(sleigh);
+    
+    //script.add(new Entrance(santa, 1, 300, 2000, 2500));
+    script.add(new Entrance(sleigh, 1, -5000, -1000, 5000));
+    script.add(new MoveTo(sleigh, 1, 4*FRAMES_PER_SECOND, -200, 880, 2500));
+    
+    //garage roof coordinates  880, 2500
     
     png = loadImage("dot.png");
 }
