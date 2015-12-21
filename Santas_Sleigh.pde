@@ -31,10 +31,10 @@ class SleighCostume extends Costume
             //the beard
             fill(255, 255, 255);
             beginShape();
-            vertex(145, -390);
-            quadraticVertex(145, -405, 145, -380);
-            vertex(145, -130);
-            quadraticVertex(315, -200, 145, -380);
+            vertex(50, -190);
+            quadraticVertex(50, -205, 50, -180);
+            vertex(50, 70);
+            quadraticVertex(220, 0, 50, -180);
             endShape(CLOSE);
             
             //the hat

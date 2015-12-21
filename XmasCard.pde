@@ -16,7 +16,7 @@ void setup()
     Actor sleigh = new Actor(new SleighCostume(true));
     cast.add(sleigh);
     
-    Actor santa = new Actor(new SantaCostume());
+    Actor santa = new Actor(new SantaCostume(true));
     cast.add(santa);
     
     //sleigh flies in
@@ -32,6 +32,7 @@ void setup()
     script.add(new MoveTo(santa, 11*FRAMES_PER_SECOND + 9, FRAMES_PER_SECOND/4, 2150, 150, 2500));
     script.add(new Exit(santa, 12*FRAMES_PER_SECOND));
     //santa exits house
+    script.add(new ChangeCostume(santa, 15*FRAMES_PER_SECOND, new SantaCostume(false)));
     script.add(new Entrance(santa, 15*FRAMES_PER_SECOND, 2150, 150, 2500));
     script.add(new MoveTo(santa, 15*FRAMES_PER_SECOND + 9, FRAMES_PER_SECOND/4, 2150, 0, 2500));
     script.add(new MoveTo(santa, 16*FRAMES_PER_SECOND,  FRAMES_PER_SECOND, 2000, 550, 2500));

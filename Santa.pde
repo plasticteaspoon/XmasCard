@@ -3,6 +3,13 @@ class SantaCostume extends Costume
     float rArmAngle = PI/8;
     float lArmAngle = -PI/8;
     
+    private boolean _gotPresent;
+    
+    public SantaCostume(boolean gotPresent)
+    {
+        _gotPresent = gotPresent;    
+    }
+    
      public void drawAtOrigin()
      {         
          noStroke();
@@ -15,8 +22,10 @@ class SantaCostume extends Costume
          stroke(0, 0, 0);
          //the head
          drawHead();
-             
-         
+         if(_gotPresent)
+         {
+             drawPresent();
+         }
      }
      
     private void drawBody()
@@ -110,5 +119,19 @@ class SantaCostume extends Costume
         fill(0, 0, 0);
         ellipse(-75, 0, 100, 50);
         ellipse(75, 0, 100, 50);         
+    }
+    
+    private void drawPresent()
+    {
+        pushMatrix();
+        translate(110, -240);
+        //the main body of it
+        fill(0, 0, 255);
+        rect(0, 0, 100, 100);
+        //the ribbon
+        fill(255, 239, 4);
+        rect(45, 0, 10, 100);
+        rect(0, 45, 100, 10);
+        popMatrix();
     }
 }
