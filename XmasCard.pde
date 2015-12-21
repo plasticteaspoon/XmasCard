@@ -1,4 +1,5 @@
 //Jessica and Paul Drury December 2015
+/* @pjs preload="dot.png"; */
 
 final int FRAMES_PER_SECOND = 18;
 
