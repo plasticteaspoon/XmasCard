@@ -30,13 +30,14 @@ class SleighCostume extends Costume
             
             //the beard
             fill(255, 255, 255);
+ 
             beginShape();
             vertex(50, -190);
-            quadraticVertex(50, -205, 50, -180);
+            bezierVertex(50, -205, 50, -205, 50, -180);
             vertex(50, 70);
-            quadraticVertex(220, 0, 50, -180);
+            bezierVertex(220, 0, 220, 0, 50, -180);
             endShape(CLOSE);
-            
+
             //the hat
             noStroke();
             fill(225, 0, 0);
@@ -75,7 +76,7 @@ class SleighCostume extends Costume
         //the side of footwell        
         rect(700, 0, 300, -100);
         //the footwell
-        arc(1000, -275, 550, 550, PI + HALF_PI, 2*PI + HALF_PI, CHORD);
+        arc(1000, -275, 550, 550, PI + HALF_PI, 2*PI + HALF_PI);
         popMatrix();
     }
 }

@@ -58,9 +58,9 @@ class SantaCostume extends Costume
         fill(255, 255, 255);
         beginShape();
         vertex(70, -380);
-        quadraticVertex(0, -405, -70, -380);
-        quadraticVertex(-100, -200, 0, -130);
-        quadraticVertex(100, -200, 70, -380);
+        bezierVertex(0, -405, 0, -405, -70, -380);
+        bezierVertex(-100, -200, -100, -200, 0, -130);
+        bezierVertex(100, -200, 100, -200, 70, -380);
         endShape(CLOSE);
         
         //the mouth

@@ -7,14 +7,14 @@ public class Actor
     
     public Actor(Costume costume)
     {
-        _position = new PVector(0, 0, 8);
+        _position = new PVector(0, 0, 0);
         _costume = costume;
     }
     
     //go onto the stage
     public void enterStage(PVector position)
     {
-        _position = position.copy();
+        _position = new PVector(position.x, position.y, position.z);
         _visible = true;
     }
     
@@ -41,7 +41,8 @@ public class Actor
         if (_visible)
         {
             pushMatrix();
-            translate(_position.x, _position.y, -_position.z);
+            translate(_position.x, _position.y); //, -_position.z);
+            scale(0.2 * 300 / _position.z);
             _costume.drawAtOrigin();
             popMatrix();
         }

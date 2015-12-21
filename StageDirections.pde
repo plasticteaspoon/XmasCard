@@ -68,7 +68,7 @@ public class MoveTo extends StageDirection
     
     public MoveTo(Actor actor, int startTime, int duration, float destX, float destY, float destZ)
     {
-        super(actor, startTime, duration); //<>//
+        super(actor, startTime, duration);
         
         _destination = new PVector(destX, destY, destZ);
     }
@@ -79,7 +79,7 @@ public class MoveTo extends StageDirection
         
         if(timeRemaining  > 0)
         {
-            PVector moveBy = _destination.copy(); //<>//
+            PVector moveBy = new PVector(_destination.x, _destination.y, _destination.z);
             moveBy.sub(_actor.getPosition());
             moveBy.div(timeRemaining);        
             _actor.move(moveBy);
