@@ -7,14 +7,14 @@ class SantaCostume extends Costume
      {         
          noStroke();
          //the legs
-         //drawLegs();
+         drawLegs();
          //the arms 
-         //drawArms();
+         drawArms();
          //the body
-         //drawBody();
+         drawBody();
          stroke(0, 0, 0);
          //the head
-         //drawHead();
+         drawHead();
              
          
      }

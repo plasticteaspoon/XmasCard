@@ -99,3 +99,19 @@ public class Exit extends StageDirection
         _actor.exitStage();
     }
 }
+
+public class ChangeCostume extends StageDirection
+{
+    private Costume _costume;
+    
+    public ChangeCostume(Actor actor, int startTime, Costume costume)
+    {
+        super(actor, startTime, 0);
+        _costume = costume;
+    }
+    
+    public void execute(int Time)
+    {
+        _actor.changeCostume(_costume);
+    }
+}

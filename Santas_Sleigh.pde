@@ -1,10 +1,15 @@
 class SleighCostume extends Costume
 {
-    boolean occupied = true;
+    private boolean _occupied;
     
-     public void drawAtOrigin()
+    public SleighCostume(boolean occupied)
     {
-        if(occupied == true)
+        _occupied = occupied;
+    }
+    
+    public void drawAtOrigin()
+    {
+        if(_occupied == true)
         {
             pushMatrix();
             translate(400, -200);

@@ -52,11 +52,16 @@ public class Actor
         return _position;
     }
     
+    public void changeCostume(Costume costume)
+    {
+        _costume = costume;
+    }
+    
  }
  
  public class Costume
- {
-     public void drawAtOrigin()
-     {
-     }
+ {   
+    public void drawAtOrigin()
+    {
+    }
  }
