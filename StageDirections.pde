@@ -110,7 +110,7 @@ public class ChangeCostume extends StageDirection
         _costume = costume;
     }
     
-    public void execute(int Time)
+    public void execute(int time)
     {
         _actor.changeCostume(_costume);
     }
@@ -126,7 +126,7 @@ public class Speak extends StageDirection
         _lines = lines;
     }
     
-    public void execute(int Time)
+    public void execute(int time)
     {
         _actor.speak(_lines);    
     }

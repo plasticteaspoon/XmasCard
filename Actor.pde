@@ -45,18 +45,12 @@ public class Actor
             translate(_position.x, _position.y); //, -_position.z);
             
             //draw the costume
-            pushMatrix();
             scale(0.2 * 300 / _position.z);
-            _costume.drawAtOrigin();            
-            popMatrix();
-            
-            //draw the speech bubble
-            if(_lines != null)
-            {
-                text(_lines, 0, 0);
-            }
+            _costume.drawAtOrigin(_lines);
             
             popMatrix();
+            
+            _lines = null;
         }
     }
     
@@ -77,9 +71,7 @@ public class Actor
     
  }
  
- public class Costume
+ abstract public class Costume
  {   
-    public void drawAtOrigin()
-    {
-    }
+    abstract public void drawAtOrigin(String lines);
  }
