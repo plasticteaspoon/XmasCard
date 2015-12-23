@@ -1,4 +1,5 @@
 //Jessica and Paul Drury December 2015
+/* @pjs preload="dot.png"; */
 
 final int FRAMES_PER_SECOND = 18;
 
@@ -9,8 +10,8 @@ PImage png;
 
 void setup()
 {
-    //set the size of the stage
-    size(800, 600, P3D); //<>//
+    //set the size of the stage //<>//
+    size(800, 600);
     frameRate(FRAMES_PER_SECOND);
     
     Actor sleigh = new Actor(new SleighCostume(true));
@@ -20,31 +21,34 @@ void setup()
     cast.add(santa);
     
     //sleigh flies in
-    script.add(new Entrance(sleigh, 1, -5000, -1000, 5000));
-    script.add(new MoveTo(sleigh, 1, 4*FRAMES_PER_SECOND, -550, 880, 2500));
-    script.add(new ChangeCostume(sleigh, 4*FRAMES_PER_SECOND + 9, new SleighCostume(false)));
-    //santa enters house
-    script.add(new Entrance(santa, 4*FRAMES_PER_SECOND + 9, 0, 880, 2500));
-    script.add(new MoveTo(santa, 5*FRAMES_PER_SECOND, FRAMES_PER_SECOND, 500, 880, 2500));
-    script.add(new MoveTo(santa, 6*FRAMES_PER_SECOND, FRAMES_PER_SECOND/2, 500, 550, 2500));
-    script.add(new MoveTo(santa, 6*FRAMES_PER_SECOND + 9, 3*FRAMES_PER_SECOND, 2000, 550, 2500));
-    script.add(new MoveTo(santa, 10*FRAMES_PER_SECOND, FRAMES_PER_SECOND, 2150, 0, 2500));
-    script.add(new MoveTo(santa, 11*FRAMES_PER_SECOND + 9, FRAMES_PER_SECOND/4, 2150, 150, 2500));
-    script.add(new Exit(santa, 12*FRAMES_PER_SECOND));
-    //santa exits house
-    script.add(new ChangeCostume(santa, 15*FRAMES_PER_SECOND, new SantaCostume(false)));
-    script.add(new Entrance(santa, 15*FRAMES_PER_SECOND, 2150, 150, 2500));
-    script.add(new MoveTo(santa, 15*FRAMES_PER_SECOND + 9, FRAMES_PER_SECOND/4, 2150, 0, 2500));
-    script.add(new MoveTo(santa, 16*FRAMES_PER_SECOND,  FRAMES_PER_SECOND, 2000, 550, 2500));
-    script.add(new MoveTo(santa, 17*FRAMES_PER_SECOND, 3*FRAMES_PER_SECOND, 500, 550, 2500));
-    script.add(new MoveTo(santa, 20*FRAMES_PER_SECOND, FRAMES_PER_SECOND/2, 500, 880, 2500));
-    script.add(new MoveTo(santa, 21*FRAMES_PER_SECOND, FRAMES_PER_SECOND, 0, 880, 2500));
-    script.add(new Exit(santa, 23*FRAMES_PER_SECOND));
-    //sleigh flies away
-    script.add(new ChangeCostume(sleigh, 23*FRAMES_PER_SECOND, new SleighCostume(true)));
-    script.add(new MoveTo(sleigh, 24*FRAMES_PER_SECOND, 4*FRAMES_PER_SECOND, 5500, -2000, 5000));
+    script.add(new Entrance(sleigh, 1, 0, 100, 1000));
+    script.add(new MoveTo(sleigh, 1 , 4 * FRAMES_PER_SECOND, 180, 400, 300));
+    script.add(new ChangeCostume(sleigh, 5 * FRAMES_PER_SECOND, new SleighCostume(false)));
     
-    //garage roof coordinates  880, 2500
+    //santa enters house
+    script.add(new Entrance(santa, 5    * FRAMES_PER_SECOND, 250, 400, 300));                                //appear on garage roof
+    script.add(new MoveTo(santa,   6    * FRAMES_PER_SECOND,  3    * FRAMES_PER_SECOND,  425, 400, 300));    //move along garage roof
+    script.add(new MoveTo(santa,   9    * FRAMES_PER_SECOND,  0.5  * FRAMES_PER_SECOND,  425, 345, 300));    //rise to main roof level
+    script.add(new MoveTo(santa,   9.5  * FRAMES_PER_SECOND,  4    * FRAMES_PER_SECOND,  675, 345, 300));    //move along the bottom of the roof
+    script.add(new MoveTo(santa,   14   * FRAMES_PER_SECOND,  1.5  * FRAMES_PER_SECOND,  700, 231, 300));    //jump into the air
+    script.add(new MoveTo(santa,   16.5 * FRAMES_PER_SECOND,  0.25 * FRAMES_PER_SECOND,  700, 268, 300));    //land on the chimney
+    
+    script.add(new Exit(santa,     17.5 * FRAMES_PER_SECOND));
+    
+    //santa exits house
+    script.add(new ChangeCostume(santa, 21*FRAMES_PER_SECOND, new SantaCostume(false)));
+    script.add(new Entrance(santa, 21   * FRAMES_PER_SECOND, 700, 268, 300)); //appears on chimney
+    
+    script.add(new MoveTo(santa,   21.5 * FRAMES_PER_SECOND,  0.25 * FRAMES_PER_SECOND,  700, 231, 300)); //jumps into air
+    script.add(new MoveTo(santa,   22.5 * FRAMES_PER_SECOND,  0.33 * FRAMES_PER_SECOND,  675, 345, 300)); //lands on the roof
+    script.add(new MoveTo(santa,   24.5 * FRAMES_PER_SECOND,  4    * FRAMES_PER_SECOND,  425, 345, 300)); //walks along roof
+    script.add(new MoveTo(santa,   29.5 * FRAMES_PER_SECOND,  0.5  * FRAMES_PER_SECOND,  425, 400, 300)); //jumps onto garage
+    script.add(new MoveTo(santa,   30   * FRAMES_PER_SECOND,  3    * FRAMES_PER_SECOND,  250, 400, 300)); //walks to the sleigh
+    
+    script.add(new Exit(santa,     31   * FRAMES_PER_SECOND)); //gets into sleigh
+    //sleigh flies away
+    script.add(new ChangeCostume(sleigh, 31*FRAMES_PER_SECOND, new SleighCostume(true)));
+    script.add(new MoveTo(sleigh, 31.5 * FRAMES_PER_SECOND, 4 * FRAMES_PER_SECOND, 800, 100, 5000));
     
     png = loadImage("dot.png");
 }
