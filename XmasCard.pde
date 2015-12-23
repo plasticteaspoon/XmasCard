@@ -21,12 +21,13 @@ void setup()
     cast.add(santa);
     
     //sleigh flies in
-    script.add(new Entrance(sleigh, 1, 0, 100, 1000));
-    script.add(new MoveTo(sleigh, 1 , 4 * FRAMES_PER_SECOND, 180, 400, 300));
+    script.add(new Entrance(sleigh,      1 * FRAMES_PER_SECOND, 0, 100, 1000));
+    script.add(new MoveTo(sleigh,        1 * FRAMES_PER_SECOND, 4 * FRAMES_PER_SECOND, 180, 400, 300));
     script.add(new ChangeCostume(sleigh, 5 * FRAMES_PER_SECOND, new SleighCostume(false)));
     
     //santa enters house
     script.add(new Entrance(santa, 5    * FRAMES_PER_SECOND, 250, 400, 300));                                //appear on garage roof
+    script.add(new Speak(santa,    5    * FRAMES_PER_SECOND,  30   * FRAMES_PER_SECOND, "Merry Christmas"));
     script.add(new MoveTo(santa,   6    * FRAMES_PER_SECOND,  3    * FRAMES_PER_SECOND,  425, 400, 300));    //move along garage roof
     script.add(new MoveTo(santa,   9    * FRAMES_PER_SECOND,  0.5  * FRAMES_PER_SECOND,  425, 345, 300));    //rise to main roof level
     script.add(new MoveTo(santa,   9.5  * FRAMES_PER_SECOND,  4    * FRAMES_PER_SECOND,  675, 345, 300));    //move along the bottom of the roof

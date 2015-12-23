@@ -115,3 +115,19 @@ public class ChangeCostume extends StageDirection
         _actor.changeCostume(_costume);
     }
 }
+
+public class Speak extends StageDirection
+{
+    private String _lines;
+    
+    public Speak(Actor actor, float startTime, float duration, String lines)
+    {
+        super(actor, (int)startTime, (int)duration);
+        _lines = lines;
+    }
+    
+    public void execute(int Time)
+    {
+        _actor.speak(_lines);    
+    }
+}

@@ -4,6 +4,7 @@ public class Actor
     private PVector _position;
     private Costume _costume;
     private boolean _visible = false;
+    private String _lines;
     
     public Actor(Costume costume)
     {
@@ -40,10 +41,21 @@ public class Actor
     {
         if (_visible)
         {
-            pushMatrix();
+            pushMatrix();            
             translate(_position.x, _position.y); //, -_position.z);
+            
+            //draw the costume
+            pushMatrix();
             scale(0.2 * 300 / _position.z);
-            _costume.drawAtOrigin();
+            _costume.drawAtOrigin();            
+            popMatrix();
+            
+            //draw the speech bubble
+            if(_lines != null)
+            {
+                text(_lines, 0, 0);
+            }
+            
             popMatrix();
         }
     }
@@ -56,6 +68,11 @@ public class Actor
     public void changeCostume(Costume costume)
     {
         _costume = costume;
+    }
+    
+    public void speak(String lines)
+    {
+        _lines = lines;
     }
     
  }
