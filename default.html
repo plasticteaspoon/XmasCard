@@ -5,12 +5,20 @@
 	    <meta charset="utf-8" />
         <style>
             canvas {
+                visibility:hidden;
                 border:1px black solid;
             }
         </style>
+        <script src="jquery.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $("#welcome").css("visibility", "hidden");
+                $("canvas").css("visibility", "visible");
+            });
+        </script>
     </head>
     <body>
-        HELLO
+        <div id="welcome">LOADING PLEASE WAIT</div>
         <script src="processing.js"></script>
         <canvas data-processing-sources="XmasCard.pde Actor.pde StageDirections.pde Santa.pde Santas_Sleigh.pde"></canvas>
     </body>

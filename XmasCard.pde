@@ -32,24 +32,14 @@ void setup()
     script.add(new MoveTo(santa, 12 * FRAMES_PER_SECOND, 2 * FRAMES_PER_SECOND, 650, 268, 300));    //descend far side of roof
     script.add(new MoveTo(santa, 14 * FRAMES_PER_SECOND, 1 * FRAMES_PER_SECOND/4, 700, 268, 300));  //move across to top of chimney
     script.add(new Exit(santa,   16 * FRAMES_PER_SECOND));
-    //santa exits house
-    /**************************************************
-    script.add(new ChangeCostume(santa, 15*FRAMES_PER_SECOND, new SantaCostume(false)));
-    script.add(new Entrance(santa, 15*FRAMES_PER_SECOND, 2150, 150, 2500));
-    script.add(new MoveTo(santa, 15*FRAMES_PER_SECOND + 9, FRAMES_PER_SECOND/4, 2150, 0, 2500));
-    script.add(new MoveTo(santa, 16*FRAMES_PER_SECOND,  FRAMES_PER_SECOND, 2000, 550, 2500));
-    script.add(new MoveTo(santa, 17*FRAMES_PER_SECOND, 3*FRAMES_PER_SECOND, 500, 550, 2500));
-    script.add(new MoveTo(santa, 20*FRAMES_PER_SECOND, FRAMES_PER_SECOND/2, 500, 880, 2500));
-    script.add(new MoveTo(santa, 21*FRAMES_PER_SECOND, FRAMES_PER_SECOND, 0, 880, 2500));
-    script.add(new Exit(santa, 23*FRAMES_PER_SECOND));
-    ********************************************************/
+    
     //sleigh flies away
     script.add(new ChangeCostume(sleigh, 23*FRAMES_PER_SECOND, new SleighCostume(true)));
     script.add(new MoveTo(sleigh, 24 * FRAMES_PER_SECOND, 4 * FRAMES_PER_SECOND, 800, 100, 5000));
     
     //garage roof coordinates  880, 2500
     
-    png = loadImage("dot.png");
+    png = loadImage("http://www.drurys.org/xmascard/dot.png", "png");
 }
 
 void draw() 
