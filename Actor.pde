@@ -4,6 +4,7 @@ public class Actor
     private PVector _position;
     private Costume _costume;
     private boolean _visible = false;
+    private String _lines;
     
     public Actor(Costume costume)
     {
@@ -40,11 +41,16 @@ public class Actor
     {
         if (_visible)
         {
-            pushMatrix();
+            pushMatrix();            
             translate(_position.x, _position.y); //, -_position.z);
+            
+            //draw the costume
             scale(0.2 * 300 / _position.z);
-            _costume.drawAtOrigin();
+            _costume.drawAtOrigin(_lines);
+            
             popMatrix();
+            
+            _lines = null;
         }
     }
     
@@ -58,11 +64,14 @@ public class Actor
         _costume = costume;
     }
     
+    public void speak(String lines)
+    {
+        _lines = lines;
+    }
+    
  }
  
- public class Costume
+ abstract public class Costume
  {   
-    public void drawAtOrigin()
-    {
-    }
+    abstract public void drawAtOrigin(String lines);
  }

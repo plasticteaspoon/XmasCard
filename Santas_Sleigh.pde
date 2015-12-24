@@ -7,7 +7,7 @@ class SleighCostume extends Costume
         _occupied = occupied;
     }
     
-    public void drawAtOrigin()
+    public void drawAtOrigin(String lines)
     {
         if(_occupied == true)
         {
@@ -27,6 +27,10 @@ class SleighCostume extends Costume
             noStroke();
             fill(255, 223, 196);
             ellipse(0, -175, 150, 150);
+            
+            //the eye
+            fill(0, 0, 0);
+            ellipse(50, -180, 10, 10);
             
             //the beard
             fill(255, 255, 255);
@@ -65,8 +69,10 @@ class SleighCostume extends Costume
             
             popMatrix();
         }
+       
         pushMatrix();
         scale(0.65);
+        
         fill(255, 0, 0);
         noStroke();
         //the back
@@ -77,6 +83,7 @@ class SleighCostume extends Costume
         rect(700, 0, 300, -100);
         //the footwell
         arc(1000, -275, 550, 550, PI + HALF_PI, 2*PI + HALF_PI);
+        
         popMatrix();
     }
 }

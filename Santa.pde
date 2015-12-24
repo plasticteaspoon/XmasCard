@@ -10,7 +10,7 @@ class SantaCostume extends Costume
         _gotPresent = gotPresent;    
     }
     
-     public void drawAtOrigin()
+     public void drawAtOrigin(String lines)
      {         
          noStroke();
          //the legs
@@ -25,6 +25,14 @@ class SantaCostume extends Costume
          if(_gotPresent)
          {
              drawPresent();
+         }
+         
+         if(lines != null)
+         {
+             pushMatrix();
+             translate(50, -360);
+             drawSpeechBubble(lines);
+             popMatrix();
          }
      }
      
@@ -133,5 +141,15 @@ class SantaCostume extends Costume
         rect(45, 0, 10, 100);
         rect(0, 45, 100, 10);
         popMatrix();
+    }
+    private void drawSpeechBubble(String lines)
+    {
+        noStroke();
+        fill(255, 255, 255);
+        triangle(0, 0, 200, -225, 150, -215);
+        ellipse(300, -253, 350, 290);
+        fill(0, 0, 0);
+        textSize(50);
+        text(lines, 200, -340, 290, 230);
     }
 }
