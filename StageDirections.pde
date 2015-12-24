@@ -68,7 +68,7 @@ public class MoveTo extends StageDirection
     
     public MoveTo(Actor actor, float startTime, float duration, float destX, float destY, float destZ)
     {
-        super(actor, (int)startTime, (int)duration); //<>// //<>//
+        super(actor, (int)startTime, (int)duration); //<>// //<>// //<>//
         
         _destination = new PVector(destX, destY, destZ);
     }
@@ -79,7 +79,7 @@ public class MoveTo extends StageDirection
         
         if(timeRemaining  > 0)
         {
-            PVector moveBy = new PVector(_destination.x, _destination.y, _destination.z); //<>// //<>//
+            PVector moveBy = new PVector(_destination.x, _destination.y, _destination.z); //<>// //<>// //<>//
             moveBy.sub(_actor.getPosition());
             moveBy.div(timeRemaining);        
             _actor.move(moveBy);
@@ -134,18 +134,18 @@ public class Speak extends StageDirection
 
 public class SceneChange extends StageDirection
 {
-    private String _fileName;
+    private PImage _img;
     private Backdrop _backdrop;
     
-    public SceneChange(Backdrop backdrop, float startTime, String fileName)
+    public SceneChange(Backdrop backdrop, float startTime, PImage img)
     {
         super(null, (int)startTime, 0);
-        _fileName = fileName;
+        _img = img;
         _backdrop = backdrop;
     }
     
     public void execute(int time)
     {
-        _backdrop.loadBackdrop(_fileName);    
+        _backdrop.loadBackdrop(_img);    
     }
 }

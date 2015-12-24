@@ -1,20 +1,20 @@
 class Backdrop extends Actor
 {
-    private PImage _png;
+    private PImage _img;
     
-    public Backdrop(String fileName)
+    public Backdrop(PImage img)
     {
         super(null);
-        _png = loadImage(fileName);
+        _img = img;
     }
     
     public void draw()
     {
-        background(_png);
+        background(_img);
     }
     
-    public void loadBackdrop(String fileName)
+    public void loadBackdrop(PImage img)
     {
-        _png = loadImage(fileName);
+        _img = img;
     }
 }
