@@ -27,8 +27,8 @@ void setup()
     
     //santa enters house
     script.add(new Entrance(santa, 5    * FRAMES_PER_SECOND, 250, 400, 300));                                //appear on garage roof
-    script.add(new Speak (santa,   5    * FRAMES_PER_SECOND,  2    * FRAMES_PER_SECOND, "Ho Ho Ho!"));
-    script.add(new MoveTo(santa,   6    * FRAMES_PER_SECOND,  3    * FRAMES_PER_SECOND,  425, 400, 300));    //move along garage roof
+    script.add(new Speak (santa,   5    * FRAMES_PER_SECOND,  3    * FRAMES_PER_SECOND, "Ho Ho Ho!"));
+    script.add(new MoveTo(santa,   6    * FRAMES_PER_SECOND,  3.5    * FRAMES_PER_SECOND,  425, 400, 300));    //move along garage roof
     script.add(new MoveTo(santa,   9    * FRAMES_PER_SECOND,  0.5  * FRAMES_PER_SECOND,  425, 345, 300));    //rise to main roof level
     script.add(new MoveTo(santa,   9.5  * FRAMES_PER_SECOND,  4    * FRAMES_PER_SECOND,  675, 345, 300));    //move along the bottom of the roof
     script.add(new MoveTo(santa,   14   * FRAMES_PER_SECOND,  1.5  * FRAMES_PER_SECOND,  700, 231, 300));    //jump into the air
