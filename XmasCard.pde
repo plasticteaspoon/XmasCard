@@ -1,5 +1,6 @@
 //Jessica and Paul Drury December 2015
 /* @pjs preload="dot.png"; */
+/* @pjs preload="message.png"; */
 
 final int FRAMES_PER_SECOND = 18;
 
@@ -9,7 +10,7 @@ ArrayList<StageDirection> script = new ArrayList<StageDirection>();
 PImage png;
 
 void setup()
-{
+{ //<>//
     //set the size of the stage //<>//
     size(800, 600);
     frameRate(FRAMES_PER_SECOND);
@@ -53,6 +54,9 @@ void setup()
     //sleigh flies away
     script.add(new ChangeCostume(sleigh, 37*FRAMES_PER_SECOND, new SleighCostume(true)));
     script.add(new MoveTo(sleigh, 37.5 * FRAMES_PER_SECOND, 4 * FRAMES_PER_SECOND, 800, 100, 5000));
+    script.add(new Exit(sleigh,   42   * FRAMES_PER_SECOND));
+    script.add(new SceneChange(   44   * FRAMES_PER_SECOND, "message.png"));
+
     
     png = loadImage("http://www.drurys.org/xmascard/dot.png", "png");
 }
