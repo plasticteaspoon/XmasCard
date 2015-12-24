@@ -5,23 +5,14 @@
 	    <meta charset="utf-8" />
         <style>
             canvas {
-                display:none;
                 border:1px black solid;
                 width:800px;
                 height:600px;
             }
         </style>
-        <script src="jquery.min.js"></script>
-        <script>
-            $(document).ready(function () {
-                $("#welcome").css("display", "none");
-                $("canvas").css("display", "block");
-            });
-        </script>
+        <script src="processing.js"></script>
     </head>
     <body>
-        <div id="welcome">LOADING PLEASE WAIT...</div>
         <canvas data-processing-sources="XmasCard.pde Actor.pde StageDirections.pde Santa.pde Santas_Sleigh.pde"></canvas>
-        <script src="processing.js"></script>
     </body>
 </html>
