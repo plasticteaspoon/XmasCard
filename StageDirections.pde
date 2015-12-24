@@ -134,16 +134,18 @@ public class Speak extends StageDirection
 
 public class SceneChange extends StageDirection
 {
-    private String _background;
+    private String _fileName;
+    private Backdrop _backdrop;
     
-    public SceneChange(float startTime, String fileName)
+    public SceneChange(Backdrop backdrop, float startTime, String fileName)
     {
         super(null, (int)startTime, 0);
-        _background = fileName;
+        _fileName = fileName;
+        _backdrop = backdrop;
     }
     
     public void execute(int time)
     {
-        png = loadImage(_background);    
+        _backdrop.loadBackdrop(_fileName);    
     }
 }
